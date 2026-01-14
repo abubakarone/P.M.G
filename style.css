@@ -1,0 +1,1023 @@
+  :root{
+   --body-color: #F9F9F9;
+   --background: #FFFFFF;
+   --container-color: #00EBFF;
+   --text-color: #000000;
+   --primary-color: #2EBEE2;
+   --secondary-color: #8C8A8A52;
+   --btn-color:  #4076FF;
+   --color: white;
+   --fade-color: white;
+   --whiteandblack: black;
+   --secondary-color-close: #8C8A8A52;
+   --saved-password-fade: #D6CFCF4D;
+   --password-hover: rgba(134, 134, 134, 0.18);
+   --password-hover-border: rgba(89, 89, 89, 0.2);
+   --box-shadow: #17171721;
+   --brand-name: #4076FF;
+   --theme-change-button: #4076FF;
+   --svg-BW: black;
+   --pn_text-color: #0061FF;
+}
+
+  body.dark-theme{
+   --body-color:  #1D2521;
+   --container: #27302C;
+   --text-color: #FFFFFF;
+   --primary-color: #018065;
+   --secondary-color: #1D2521;
+   --btn-color:  #27302C;
+   --fade-color: #27302C;
+   --color: black;
+   --whiteandblack: white;
+   --secondary-color-close: #27302C;
+   --saved-password-fade: rgba(255, 255, 255, 0.1);
+   --password-hover: #CECECE2E;
+   --password-hover-border: #CECECE42;
+   --box-shadow: #1D2521;
+   --brand-name: #999999B3;
+   --theme-change-button: #FFFFFF;
+   --svg-BW: #e8eaed;
+   --pn_text-color: #00A4FF;
+}
+ @font-face {
+ font-family: 'Audiowide';
+ src: url('Audiowide-Regular.ttf');
+ }
+ @font-face {
+ font-family: 'Sarpanch';
+ src: url('Sarpanch-Regular.ttf');
+ }
+ /* Apply fonts */
+   html {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Sarpanch', sans-serif;
+  background: #000000;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  z-index: -999;
+}
+h2, h1, h4, p, button {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE 10+ */
+  user-select: none;         /* Standard syntax */
+}
+#lock-screen {
+  background: black;
+  border: none;
+  border-radius: 0px;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  max-width: 400px;
+  transition: opacity 1s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Sarpanch', sans-serif;
+  overflow: hidden;
+}
+.hidden {
+  display: none;
+}
+#pattern-login-btn,
+#choose-pin,
+#choose-pattern,
+#save-pin-btn,
+#save-pattern-btn,
+#pin-login-btn{
+    cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+  border: none;
+  border-radius: 2px;
+  font-size: 16px;
+  width: 120px;
+  height: 40px;
+  margin: 10px;
+  color: white;
+  backdrop-filter: blur(5px);
+  transition: background 0.3s;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px); background-color: rgba(255, 255, 255, 0.1); box-shadow: rgba(255, 255, 255, 0.5) 0.1px 0.1px 2px inset;
+  font-family: 'Sarpanch', sans-serif;
+}
+/* Icon-only buttons */
+.icon-btn {
+  background: none;
+  padding: 4px;
+}
+input[type="password"] {
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+  width: 120px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.3);
+  color: white;
+  outline: none;
+}
+.titl {
+  color: white;
+  top: -130px;
+}
+.titll {
+  position: absolute;
+  top: 0;
+  left: 25%;
+  font-size: 23px;
+  text-align: center;
+  display: flex;
+}
+canvas {
+  background: transparent;
+  border: none;
+  border-radius: 0px;
+  margin-bottom: -285px;
+  align-items: center;
+  justify-content: center;
+}
+.contain_eye_digit{
+ position: relative;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ width: 220px;
+ height: 40px;
+}
+#save-pin-btn {
+  margin-top: -80px;
+}
+  #toggle-pin-login,
+  #toggle-pin-setup-vis {
+   position: absolute;
+   display: inline-flex;
+   fill: white;
+   border: none;
+   border-radius: 50px;
+   align-items: center;
+   justify-content: center;
+   background: transparent;
+   width: 40px;
+   height: 40px;
+   transform: translateY(-20px);
+   right: -12px;
+   cursor: grab;
+   cursor: -webkit-grab;
+   cursor: -moz-grab;
+  }
+/* Adjust backspace button */
+/* Backspace Positioned Near Zero */
+#backspace-pin-setup, #backspace-pin-login {
+  grid-column: 3;
+  grid-row: 4;
+  justify-self: center;
+  width: 60px;
+  height: 60px;
+  background: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+  fill: white;
+  bottom: 28px;
+  right: -5px;
+  border: none;
+}
+/* Media Queries for Responsive Design */
+@media (max-width: 600px) {
+  #toggle-pin-login,
+  #toggle-pin-setup-vis {
+   position: absolute;
+   display: inline-flex;
+   fill: white;
+   border: none;
+   border-radius: 50px;
+   align-items: center;
+   justify-content: center;
+   background: transparent;
+   width: 40px;
+   height: 40px;
+   transform: translateY(-23px);
+   right: -12px;
+   cursor: grab;
+   cursor: -webkit-grab;
+   cursor: -moz-grab;
+  }
+/* Backspace Positioned Near Zero */
+#backspace-pin-setup, #backspace-pin-login {
+  grid-column: 3;
+  grid-row: 4;
+  justify-self: center;
+  width: 60px;
+  height: 60px;
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+  color: white;
+  fill: white;
+  
+}}
+#clear-pin-login,
+#clear-pin-setup {
+  display: none;
+}
+#save-pattern-btn {
+  bottom: -270px;
+}
+#pattern-login-btn {
+  bottom: -270px;
+}
+#success-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  
+  transform: translate(-50%, -50%);
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 15px;
+  padding: 20px 60px;
+  text-align: center;
+  font-size: 21px;
+  color: white;
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE 10+ */
+  user-select: none;         /* Standard syntax */
+  z-index: -1;
+}
+#error-message {
+  position: fixed;
+  top: 30px;
+  background: rgba(228, 0, 0, 0.71);
+  border: 1px solid rgba(255, 102, 102, 0.45);
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 14px;
+  color: white;
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE 10+ */
+  user-select: none;         /* Standard syntax */
+  z-index: 1;
+}
+.fade-out {
+  opacity: 0;
+}
+/* PIN keypad container styling for setup & login */
+#pin-setup-screen .container,
+#pin-login-screen .container {
+  width: 220px;
+  text-align: center;
+  background: transparent;
+  margin: 0 auto;
+  margin-top: 120px;
+  padding: 0;
+}
+#pin-setup-screen .container .title,
+#pin-login-screen .container .title {
+  font-size: 1rem;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+  color: #FFFFFF;
+}
+#pin-setup-screen .container .keypad,
+#pin-login-screen .container .keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 60px);
+  grid-gap: 30px;
+  grid-row-gap: 30px;
+  justify-content: center;
+}
+/* Key styling */
+#pin-setup-screen .container .keypad .key,
+#pin-login-screen .container .keypad .key {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #C3C3C37A;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
+#pin-setup-screen .container .keypad .key span,
+#pin-login-screen .container .keypad .key span {
+  color: #FFFFFF;
+}
+#pin-setup-screen .container .keypad .zero,
+#pin-login-screen .container .keypad .zero {
+  grid-column: 2;
+}
+/* PIN display styling */
+.pin-display {
+  margin-bottom: 30px;
+  font-size: 23px;
+  letter-spacing: 8px;
+  color: #00CFE8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+  min-height: 30px;
+    -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE 10+ */
+  user-select: none;         /* Standard syntax */
+}
+/* Each digit is wrapped in a fixed-size span */
+.pin-display .digit {
+  width: 15px;
+  height: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 3px;
+    -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE 10+ */
+  user-select: none;         /* Standard syntax */
+}
+.hidden-digit {
+  border: 2px solid #00cfe8;
+  border-radius: 50%;
+}
+.visible-digit {
+  color: #00cfe8;
+}
+/* Ripple effect styles */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+.circle {
+  position: absolute;
+  background-color: #E3E3E3E6;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  animation: ripple-animation 0.7s ease-in-out;
+}
+@keyframes ripple-animation {
+  to {
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0;
+  }
+}
+@media (min-width: 768px) {
+  #save-pattern-btn {
+    position: absolute;
+    display: block;
+    align-items: center;
+    right: 34%;
+    bottom: 5px;
+    justify-content: center;
+    background: #000000;
+    border-radius: 3px;
+  }
+/* Backspace Positioned Near Zero */
+#backspace-pin-setup, #backspace-pin-login {
+  grid-column: 3;
+  grid-row: 4;
+  justify-self: center;
+  width: 60px;
+  height: 60px;
+  background: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+  color: white;
+  fill: white
+}
+  #toggle-pin-login-vis,
+  #toggle-pin-setup-vis {
+   position: absolute;
+   display: inline-flex;
+   top: 0;
+   right: -12px;
+   cursor: grab;
+   cursor: -webkit-grab;
+   cursor: -moz-grab;
+  }
+}
+/* Back button styling */
+.back-btn {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  background: #595A5B8C;
+  fill: white;
+  border: none;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+.back-btn svg{
+  margin-top: 5px;
+}
+#setup-screen h2{
+  color: white;
+}
+#setup-screen p{
+ color: white;        
+}
+@media (max-width: 600px) {
+  #toggle-pin-login,
+  #toggle-pin-setup-vis {
+   position: absolute;
+   display: inline-flex;
+   top: 0;
+   right: -12px;
+   cursor: grab;
+   cursor: -webkit-grab;
+   cursor: -moz-grab;
+  }
+/* Backspace Positioned Near Zero */
+#backspace-pin-setup, #backspace-pin-login {
+  grid-column: 3;
+  grid-row: 4;
+  justify-self: center;
+  width: 60px;
+  height: 60px;
+  background: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+  color: white;
+  fill: white
+}
+}
+@media (min-width: 1024px) {
+  #toggle-pin-login,
+  #toggle-pin-setup-vis {
+   position: absolute;
+   display: inline-flex;
+   top: 5px;
+   right: 6px;
+   cursor: grab;
+   cursor: -webkit-grab;
+   cursor: -moz-grab;
+  }
+  .contain_eye_digit {
+   position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 220px;
+   height: 50px;
+  }
+/* Backspace Positioned Near Zero */
+#backspace-pin-setup, #backspace-pin-login {
+  grid-column: 3;
+  grid-row: 4;
+  justify-self: center;
+  width: 60px;
+  height: 60px;
+  background: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+cursor: -moz-grab;
+cursor: -webkit-grab;
+  color: white;
+  fill: white;
+  border: none;
+}
+}
+@media (min-height: 932px){
+  #toggle-pin-login,
+  #toggle-pin-setup-vis {
+   position: absolute;
+   display: inline-flex;
+   top: 6px;
+   right: 0px;
+   cursor: grab;
+   cursor: -webkit-grab;
+   cursor: -moz-grab;
+  }
+.contain_eye_digit{
+ position: relative;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ width: 220px;
+ height: 50px;
+}
+/* Backspace Positioned Near Zero */
+#backspace-pin-setup, #backspace-pin-login {
+  grid-column: 3;
+  grid-row: 4;
+  justify-self: center;
+  width: 60px;
+  height: 60px;
+  background: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+cursor: -moz-grab;
+cursor: -webkit-grab;
+  color: white;
+  fill: white
+}
+}
+
+
+/*∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞ HOME PAGE ∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞*/
+
+.homepage {
+  background-color: var(--body-color);
+  color: #fff;
+  height: 100vh;
+  width: 100vw;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Sarpanch', sans-serif;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+/* Disable text selection for specified elements including button */
+.company-name,
+label,
+h1,
+.saved-password,
+.password-value,
+.password-name,
+#result,
+.result-container,
+span,
+button {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE 10+ */
+  user-select: none;         /* Standard syntax */
+}
+h1 {
+  margin: 10px 0 20px;
+  font-size: 25px;
+  text-align: center;
+  color: var(--text-color);
+ font-family: 'Sarpanch';
+}
+.company-name {
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--brand-name);
+      background: transparent;
+      font-family: Audiowide;
+      margin: 10px 0 20px;
+      font-size: 22px;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+.container_pg {
+  background: var(--body-color);
+  padding: 20px;
+  width: 310px;
+  max-width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.result-container {
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  font-size: 18px;
+  right: 2px;
+  letter-spacing: 1px;
+  padding: 12px 10px;
+  border: none;
+  border-radius: 10px;
+  height: 28px;
+  width: 295px;
+}
+.result-container #result {
+  height: 100%;
+  font-family: monospace;
+  font-weight: 300;
+  align-items: center;
+  word-break: break-all;
+  overflow-y: scroll;
+}
+#result::-webkit-scrollbar {
+  width: 2rem;
+}
+.result-container .btn {
+  position: absolute;
+  top: 5px;
+  right: 7px;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+}
+.btn{
+  border: none;
+  background-color: var(--btn-color);
+  color: #fff;
+  font-size: 16px;
+  padding: 8px 12px;
+  cursor: grab;
+  border-radius: 5px;
+  display: block;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+}
+#generate {
+  display: block;
+  position: relative;
+  width: 100%;
+  border: none;
+  background-color: var(--btn-color);
+  color: #fff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  padding: 15px 12px;
+  cursor: grab;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.setting {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0;
+}
+.setting input {
+  background: var(--secondary-color);
+  max-width: 70px;
+  padding: 5px;
+  padding-inline-start: 0.5rem;
+  border: 1px solid #0085FF;
+  border-radius: 2px;
+  color: var(--whiteandblack);
+  font-family: 'Sarpanch';
+}
+.setting input:focus{
+        outline: none;
+        border: 1px solid rgba(0, 194, 255, 1);
+}
+.setting label{
+        color: var(--text-color);
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: 500;
+}
+header{
+        width: 100vw;
+        height: 50px;
+        background: transparent;
+        opacity: 1;
+        box-shadow: 0 0 5px 2px var(--box-shadow);
+        z-index: 1;
+}
+        #sidebar {
+            position: fixed;
+            right: -260px;
+            display: flex;
+            top: -16px;
+            width: 260px;
+            height: 100vh;
+            background-color: var(--body-color);
+            transition: right 0.8s ease;
+            padding: 20px;
+            box-sizing: border-box;
+            z-index: 99;
+            flex-direction: column;
+            justify-items: center;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            border-left: none;
+            border-left: 3.5px solid var(--body-color);
+        }
+        #overlay {
+            position: fixed;
+            color: black;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: none;
+            z-index: 1;
+            transition: all 1s;
+            backdrop-filter: blur(3px);
+            background-color: #00000085;
+            opacity: 1;
+            border-left: 1px solid rgba(0, 0, 0, 0.8);
+        }
+        /* Open button */
+        #openBtn {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: 8px;
+            fill: var(--text-color);
+            display: block;
+            right: 15px;
+            font-size: 24px;
+            cursor: grab;
+            
+            z-index: 2;
+        }
+        /* Close button */
+        #closeBtn {
+            width: 36px;
+            height: 36px;
+            position: fixed;
+            cursor: grab;
+            cursor: -moz-grab;
+            cursor: -webkit-grab;
+            display: flex;
+            z-index: 6;
+            margin-left: -10px;
+            border-radius: 50%;
+            border: none;
+            align-items: center;
+            justify-content: center;
+            background: var(--secondary-color-close);
+            overflow: hidden;
+            
+        }
+        #closeBtn svg{
+            width: 30px;
+            height: 30px;
+            align-items: flex-start;
+            fill: var(--whiteandblack);
+            position: fixed;
+            background: transparent;
+            z-index: 4;
+        }
+  #theme-button{
+            position: fixed;
+            display: flex;
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            background-color: var(--secondary-color);
+            border: none;
+            fill: var(--theme-change-button);
+            left: 5px;
+            top: 3px;
+            color: var(--text-color);
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            cursor: grab;
+            cursor: -moz-grab;
+            cursor: -webkit-grab;
+        
+}     
+#theme-button svg{
+    width: 29px;
+    height: 29px;
+    transition: 0.5s;
+}
+#theme-button svg:last-child{
+    display: none;
+}
+.dark-theme #theme-button svg:first-child{
+    display: none;
+}
+.dark-theme #theme-button svg:last-child{
+    display: block;
+}
+button .circle {
+  position: absolute;
+  background-color: #FFFFFF47;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  bottom: 0;
+  transform: translate(-50%, -50%) scale(0);
+  animation: scale 3s ease-out;
+  
+}
+#savedPasswordsList {
+        position: relative;
+        margin-top: 97px;
+        flex-grow: 1;
+        width: 100%;
+}
+#savedPasswordsList li {
+        display: flex;
+        position: relative;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 12px;
+        background-color: var(--saved-password-fade);
+        border-radius: 5px;
+        margin-top: 5px;
+        margin-left: -50px;
+        color: white;
+        width: 220px;
+        overflow-x: hidden;
+        overflow-y: hidden;
+}
+#savedPasswordsList button {
+        background-color: var(--secondary-color-close);
+        fill: var(--svg-BW);
+        border: none;
+        padding: 8px 10px;
+        border-radius: 50px;
+        cursor: grab;
+        cursor: -moz-grab;
+        cursor: -webkit-grab;
+        margin-left: 5px;
+        transition: background-color 0.3s;
+}
+#savedPasswordsList .delete-btn {
+        background-color: var(--secondary-color-close);
+        fill: var(--svg-BW);
+        border: none;
+        padding: 8px 10px;
+        border-radius: 50px;
+        cursor: grab;
+        cursor: -moz-grab;
+        cursor: -webkit-grab;
+        margin-left: 5px;
+        transition: background-color 0.3s;
+}
+#savedPasswordsList .delete-btn:hover{
+ background-color: #FF000059;
+ fill: #FF0707;
+ border: none;
+ padding: 8px 10px;
+ cursor: grab;
+ cursor: -moz-grab;
+ cursor: -webkit-grab;
+ margin-left: 5px;
+ transition: background-color 0.3s;
+ border-radius: 11px;
+ transition: 0.6s;
+}
+#savedPasswordsList button:hover {
+        background-color: #1A9AC5;
+        border-radius: 11px;
+        transition: 0.6s;
+}
+.password-value {
+        font-family: monospace;
+        color: var(--whiteandblack);
+}
+.password-name {
+        font-family: Sarpanch;
+        color: var(--whiteandblack);
+}
+.pn_link{
+  color: var(--pn_text-color);
+  text-decoration: none;
+  transition: 0.8;
+  text-transform: lowercase;
+  font-family: monospace;
+  font-weight: 600;
+  letter-spacing: 0.1px;
+  
+}
+.pn_link:hover{
+        background: var(--password-hover);
+        padding: 0;
+        border-radius: 3px;
+        border: 1px solid var(--password-hover-border);
+        
+}
+.saved-password{
+    position: fixed;
+    margin-left: 40px;
+    margin-top: 40px;
+    height: 40px;
+    color: var(--whiteandblack);
+    text-align: center; 
+    background-color: var(--body-color); 
+    z-index: 3;
+    cursor: -moz-grab;
+    cursor: grab;
+    cursor: -webkit-grab;
+    font-family: 'Sarpanch', sans-serif;
+}
+.password-value:hover{
+        background: var(--password-hover);
+        padding-left: 0px;
+        padding-right: 4px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        border-radius: 3px;
+        border: 1px solid var(--password-hover-border);
+        
+}
+.cover{
+        width: 260px;
+        height: 120px;
+        background: var(--body-color);
+        position: fixed;
+        margin-left: -20px;
+        margin-top: -20px;
+        z-index: 2;
+        display: flex;
+}
+@keyframes scale {
+  to {
+    transform: translate(-50%, -50%) scale(18);
+    opacity: 0;
+  }
+}
+#savedPasswordsList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+}
+.password-item {
+  flex: 1;
+ /* white-space: nowrap;*/
+  text-overflow: ellipsis;
+}
+.password-value {
+ cursor: grab;
+ cursor: -moz-grab;
+ cursor: -webkit-grab;
+ padding: 0;
+}
+.notification {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-family: 'Sarpanch', sans-serif;
+  font-size: 14px;
+  opacity: 1;
+  transition: opacity 0.5s ease, bottom 0.5s ease;
+  z-index: 100;
+}
+.notification.hide {
+  opacity: 0;
+  bottom: 0;
+}
