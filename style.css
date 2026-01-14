@@ -182,8 +182,6 @@ canvas {
    cursor: -webkit-grab;
    cursor: -moz-grab;
   }
-/* Adjust backspace button */
-/* Backspace Positioned Near Zero */
 #backspace-pin-setup, #backspace-pin-login {
   grid-column: 3;
   grid-row: 4;
